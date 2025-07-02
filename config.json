@@ -4,6 +4,7 @@
     "converser.eu",
     "envs.net",
     "matrix.org",
+    "matrix.social.sequoiasupport.com",
     "monero.social",
     "mozilla.org",
     "xmr.se"
@@ -28,7 +29,13 @@
       "#PrivSec.dev:arcticfoxes.net",
       "#disroot:aria-net.org"
     ],
-    "servers": ["envs.net", "matrix.org", "monero.social", "mozilla.org"]
+    "servers": [
+      "envs.net",
+      "matrix.social.sequoiasupport.com",
+      "matrix.org",
+      "monero.social",
+      "mozilla.org"
+    ]
   },
 
   "hashRouter": {

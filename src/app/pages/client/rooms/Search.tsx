@@ -2,13 +2,13 @@ import React, { useRef } from 'react';
 import { Box, Icon, Icons, Text, Scroll, IconButton } from 'folds';
 import { Page, PageContent, PageContentCenter, PageHeader } from '../../../components/page';
 import { MessageSearch } from '../../../features/message-search';
-import { useHomeRooms } from './useHomeRooms';
+import { useRoomsRooms } from './useRoomsRooms';
 import { ScreenSize, useScreenSizeContext } from '../../../hooks/useScreenSize';
 import { BackRouteHandler } from '../../../components/BackRouteHandler';
 
-export function HomeSearch() {
+export function RoomsSearch() {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const rooms = useHomeRooms();
+  const rooms = useRoomsRooms();
   const screenSize = useScreenSizeContext();
 
   return (
@@ -40,7 +40,7 @@ export function HomeSearch() {
           <PageContent>
             <PageContentCenter>
               <MessageSearch
-                defaultRoomsFilterName="Home"
+                defaultRoomsFilterName="Joined"
                 allowGlobal
                 rooms={rooms}
                 scrollRef={scrollRef}

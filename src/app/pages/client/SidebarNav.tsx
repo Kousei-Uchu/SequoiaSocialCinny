@@ -13,6 +13,7 @@ import {
 import {
   DirectTab,
   HomeTab,
+  RoomsTab,
   SpaceTabs,
   InboxTab,
   ExploreTab,
@@ -31,6 +32,7 @@ export function SidebarNav() {
           <Scroll ref={scrollRef} variant="Background" size="0">
             <SidebarStack>
               <HomeTab />
+              <RoomsTab />
               <DirectTab />
             </SidebarStack>
             <SpaceTabs scrollRef={scrollRef} />

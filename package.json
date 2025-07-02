@@ -1,7 +1,7 @@
 {
-  "name": "cinny",
+  "name": "sequoiasocial",
   "version": "4.8.1",
-  "description": "Yet another matrix client",
+  "description": "Spicy Connection! A fork of Cinny, a Matrix client.",
   "main": "index.js",
   "type": "module",
   "engines": {

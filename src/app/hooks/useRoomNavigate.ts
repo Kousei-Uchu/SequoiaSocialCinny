@@ -4,7 +4,7 @@ import { useAtomValue } from 'jotai';
 import { getCanonicalAliasOrRoomId } from '../utils/matrix';
 import {
   getDirectRoomPath,
-  getHomeRoomPath,
+  getRoomsRoomPath,
   getSpacePath,
   getSpaceRoomPath,
 } from '../pages/pathUtils';
@@ -60,7 +60,7 @@ export const useRoomNavigate = () => {
         return;
       }
 
-      navigate(getHomeRoomPath(roomIdOrAlias, eventId), opts);
+      navigate(getRoomsRoomPath(roomIdOrAlias, eventId), opts);
     },
     [mx, navigate, spaceSelectedId, roomToParents, mDirects, developerTools]
   );

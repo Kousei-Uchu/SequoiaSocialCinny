@@ -286,7 +286,7 @@ function CreateRoom() {
       isOpen={create !== null}
       title={
         <Text variant="s1" weight="medium" primary>
-          {parentId ? room.name : 'Home'}
+          {parentId ? room.name : 'Rooms'}
           <span style={{ color: 'var(--tc-surface-low)' }}>
             {` — create ${isSpace ? 'space' : 'room'}`}
           </span>

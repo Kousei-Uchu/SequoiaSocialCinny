@@ -5,7 +5,7 @@ import { roomToParentsAtom } from '../../../state/room/roomToParents';
 import { allRoomsAtom } from '../../../state/room-list/roomList';
 import { useOrphanRooms } from '../../../state/hooks/roomList';
 
-export const useHomeRooms = () => {
+export const useRoomsRooms = () => {
   const mx = useMatrixClient();
   const mDirects = useAtomValue(mDirectAtom);
   const roomToParents = useAtomValue(roomToParentsAtom);

@@ -1,10 +1,10 @@
 const cons = {
   version: '4.8.1',
   secretKey: {
-    ACCESS_TOKEN: 'cinny_access_token',
-    DEVICE_ID: 'cinny_device_id',
-    USER_ID: 'cinny_user_id',
-    BASE_URL: 'cinny_hs_base_url',
+    ACCESS_TOKEN: 'sequoia_access_token',
+    DEVICE_ID: 'sequoia_device_id',
+    USER_ID: 'sequoia_user_id',
+    BASE_URL: 'sequoia_hs_base_url',
   },
   status: {
     PRE_FLIGHT: 'pre-flight',

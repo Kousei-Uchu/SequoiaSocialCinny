@@ -33,7 +33,7 @@ import { getExplorePath, getRoomsRoomPath, getRoomsSearchPath } from '../../path
 import { getCanonicalAliasOrRoomId } from '../../../utils/matrix';
 import { useSelectedRoom } from '../../../hooks/router/useSelectedRoom';
 import { useRoomsSearchSelected } from '../../../hooks/router/useRoomsSelected';
-import { useRoomsRooms } from '../rooms/useRoomsRooms';
+import { useRoomsRooms } from './useRoomsRooms';
 import { useMatrixClient } from '../../../hooks/useMatrixClient';
 import { VirtualTile } from '../../../components/virtualizer';
 import { RoomNavCategoryButton, RoomNavItem } from '../../../features/room-nav';
@@ -54,10 +54,10 @@ import {
   useRoomsNotificationPreferencesContext,
 } from '../../../hooks/useRoomsNotificationPreferences';
 
-type HomeMenuProps = {
+type RoomsMenuProps = {
   requestClose: () => void;
 };
-const RoomsMenu = forwardRef<HTMLDivElement, HomeMenuProps>(({ requestClose }, ref) => {
+const RoomsMenu = forwardRef<HTMLDivElement, RoomsMenuProps>(({ requestClose }, ref) => {
   const orphanRooms = useRoomsRooms();
   const [hideActivity] = useSetting(settingsAtom, 'hideActivity');
   const unread = useRoomsUnread(orphanRooms, roomToUnreadAtom);
@@ -103,7 +103,7 @@ const RoomsMenu = forwardRef<HTMLDivElement, HomeMenuProps>(({ requestClose }, r
   );
 });
 
-function HomeHeader() {
+function RoomsHeader() {
   const [menuAnchor, setMenuAnchor] = useState<RectCords>();
 
   const handleOpenMenu: MouseEventHandler<HTMLButtonElement> = (evt) => {
@@ -197,7 +197,7 @@ function RoomsEmpty() {
 }
 
 const DEFAULT_CATEGORY_ID = makeNavCategoryId('rooms', 'room');
-export function Home() {
+export function Rooms() {
   const mx = useMatrixClient();
   useNavToActivePathMapper('rooms');
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -235,7 +235,7 @@ export function Home() {
 
   return (
     <PageNav>
-      <HomeHeader />
+      <RoomsHeader />
       {noRoomToDisplay ? (
         <RoomsEmpty />
       ) : (

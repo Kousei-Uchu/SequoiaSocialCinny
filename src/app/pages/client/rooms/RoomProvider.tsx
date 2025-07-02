@@ -4,12 +4,12 @@ import { useSelectedRoom } from '../../../hooks/router/useSelectedRoom';
 import { IsDirectRoomProvider, RoomProvider } from '../../../hooks/useRoom';
 import { useMatrixClient } from '../../../hooks/useMatrixClient';
 import { JoinBeforeNavigate } from '../../../features/join-before-navigate';
-import { useHomeRooms } from './useHomeRooms';
+import { useRoomsRooms } from './useRoomsRooms';
 import { useSearchParamsViaServers } from '../../../hooks/router/useSearchParamsViaServers';
 
-export function HomeRouteRoomProvider({ children }: { children: ReactNode }) {
+export function RoomsRouteRoomProvider({ children }: { children: ReactNode }) {
   const mx = useMatrixClient();
-  const rooms = useHomeRooms();
+  const rooms = useRoomsRooms();
 
   const { roomIdOrAlias, eventId } = useParams();
   const viaServers = useSearchParamsViaServers();
