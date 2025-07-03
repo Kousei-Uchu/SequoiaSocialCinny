@@ -187,7 +187,7 @@ export const createRouter = (clientConfig: ClientConfig, screenSize: ScreenSize)
             path={_ROOM_PATH}
             element={
               <DirectRouteRoomProvider>
-                <Direct />
+                <Room />
               </DirectRouteRoomProvider>
             }
           />
