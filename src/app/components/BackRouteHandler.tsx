@@ -3,8 +3,8 @@ import { matchPath, useLocation, useNavigate } from 'react-router-dom';
 import {
   getDirectPath,
   getExplorePath,
-  getHomePath,
   getRoomsPath,
+  getHomePath,
   getInboxPath,
   getSpacePath,
 } from '../pages/pathUtils';
@@ -12,9 +12,9 @@ import {
   DIRECT_PATH,
   EXPLORE_PATH,
   ROOMS_PATH,
-  HOME_PATH,
   INBOX_PATH,
   SPACE_PATH,
+  HOME_PATH,
 } from '../pages/paths';
 
 type BackRouteHandlerProps = {
@@ -28,7 +28,20 @@ export function BackRouteHandler({ children }: BackRouteHandlerProps) {
     if (
       matchPath(
         {
-          path: HOME_PATH,
+          path: ROOMS_PATH,
+          caseSensitive: true,
+          end: false,
+        },
+        location.pathname
+      )
+    ) {
+      navigate(getRoomsPath());
+      return;
+    }
+    if (
+      matchPath(
+        {
+          path: DIRECT_PATH,
           caseSensitive: true,
           end: false,
         },
@@ -41,7 +54,7 @@ export function BackRouteHandler({ children }: BackRouteHandlerProps) {
     if (
       matchPath(
         {
-          path: DIRECT_PATH,
+          path: HOME_PATH,
           caseSensitive: true,
           end: false,
         },
@@ -87,18 +100,6 @@ export function BackRouteHandler({ children }: BackRouteHandlerProps) {
       )
     ) {
       navigate(getInboxPath());
-    }
-    if (
-      matchPath(
-        {
-          path: ROOMS_PATH,
-          caseSensitive: true,
-          end: false,
-        },
-        location.pathname
-      )
-    ) {
-      navigate(getRoomsPath());
     }
   }, [navigate, location]);
 

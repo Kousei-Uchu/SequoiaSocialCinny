@@ -7,7 +7,7 @@ import { JoinBeforeNavigate } from '../../../features/join-before-navigate';
 import { useRoomsRooms } from './useRoomsRooms';
 import { useSearchParamsViaServers } from '../../../hooks/router/useSearchParamsViaServers';
 
-export function RoomsRouteRoomProvider({ children }: { children: ReactNode }) {
+export function RoomRouterRoomProvider({ children }: { children: ReactNode }) {
   const mx = useMatrixClient();
   const rooms = useRoomsRooms();
 

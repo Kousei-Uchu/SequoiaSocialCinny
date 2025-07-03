@@ -6,12 +6,11 @@ import {
   EXPLORE_FEATURED_PATH,
   EXPLORE_PATH,
   EXPLORE_SERVER_PATH,
-  ROOMS_CREATE_PATH,
-  ROOMS_JOIN_PATH,
-  HOME_PATH,
+  ROOM_CREATE_PATH,
+  ROOM_JOIN_PATH,
   ROOMS_PATH,
-  ROOMS_ROOM_PATH,
-  ROOMS_SEARCH_PATH,
+  ROOM_ROOM_PATH,
+  ROOM_SEARCH_PATH,
   LOGIN_PATH,
   INBOX_INVITES_PATH,
   INBOX_NOTIFICATIONS_PATH,
@@ -23,6 +22,7 @@ import {
   SPACE_PATH,
   SPACE_ROOM_PATH,
   SPACE_SEARCH_PATH,
+  HOME_PATH,
 } from './paths';
 import { trimLeadingSlash, trimTrailingSlash } from '../utils/common';
 import { HashRouterConfig } from '../hooks/useClientConfig';
@@ -88,16 +88,16 @@ export const getResetPasswordPath = (server?: string): string => {
 };
 
 export const getRoomsPath = (): string => ROOMS_PATH;
-export const getRoomsCreatePath = (): string => ROOMS_CREATE_PATH;
-export const getRoomsJoinPath = (): string => ROOMS_JOIN_PATH;
-export const getRoomsSearchPath = (): string => ROOMS_SEARCH_PATH;
+export const getRoomsCreatePath = (): string => ROOM_CREATE_PATH;
+export const getRoomsJoinPath = (): string => ROOM_JOIN_PATH;
+export const getRoomsSearchPath = (): string => ROOM_SEARCH_PATH;
 export const getRoomsRoomPath = (roomIdOrAlias: string, eventId?: string): string => {
   const params = {
     roomIdOrAlias: encodeURIComponent(roomIdOrAlias),
     eventId: eventId ? encodeURIComponent(eventId) : null,
   };
 
-  return generatePath(ROOMS_ROOM_PATH, params);
+  return generatePath(ROOM_ROOM_PATH, params);
 };
 
 export const getHomePath = (): string => HOME_PATH;

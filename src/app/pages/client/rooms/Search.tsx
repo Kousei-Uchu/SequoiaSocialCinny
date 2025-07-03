@@ -40,7 +40,7 @@ export function RoomsSearch() {
           <PageContent>
             <PageContentCenter>
               <MessageSearch
-                defaultRoomsFilterName="Joined"
+                defaultRoomsFilterName="Rooms"
                 allowGlobal
                 rooms={rooms}
                 scrollRef={scrollRef}

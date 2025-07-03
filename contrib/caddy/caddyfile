@@ -1,7 +1,6 @@
 # more info: https://caddyserver.com/docs/caddyfile/patterns#single-page-apps-spas
-
-social.sequoiasupport.com {
-root \* /path/to/cinny/dist
-try_files {path} / index.html
-file_server
+cinny.domain.tld {
+  root * /path/to/cinny/dist
+  try_files {path} / index.html
+  file_server
 }

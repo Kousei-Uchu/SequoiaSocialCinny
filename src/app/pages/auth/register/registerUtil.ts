@@ -15,7 +15,7 @@ import {
   deleteAfterLoginRedirectPath,
   getAfterLoginRedirectPath,
 } from '../../afterLoginRedirectPath';
-import { getHomePath, getLoginPath, withSearchParam } from '../../pathUtils';
+import { getRoomsPath, getLoginPath, withSearchParam } from '../../pathUtils';
 import { getMxIdLocalPart, getMxIdServer } from '../../../utils/matrix';
 
 export enum RegisterError {
@@ -122,7 +122,7 @@ export const useRegisterComplete = (data?: CustomRegisterResponse) => {
         updateLocalStore(accessToken, deviceId, userId, baseUrl);
         const afterLoginRedirectPath = getAfterLoginRedirectPath();
         deleteAfterLoginRedirectPath();
-        navigate(afterLoginRedirectPath ?? getHomePath(), { replace: true });
+        navigate(afterLoginRedirectPath ?? getRoomsPath(), { replace: true });
       } else {
         const username = getMxIdLocalPart(userId);
         const userServer = getMxIdServer(userId);

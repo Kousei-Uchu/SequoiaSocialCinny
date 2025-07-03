@@ -675,7 +675,6 @@ export type MessageProps = {
   reply?: ReactNode;
   reactions?: ReactNode;
   hideReadReceipts?: boolean;
-  showDeveloperTools?: boolean;
   powerLevelTag?: PowerLevelTag;
   accessibleTagColors?: Map<string, string>;
   legacyUsernameColor?: boolean;
@@ -704,7 +703,6 @@ export const Message = as<'div', MessageProps>(
       reply,
       reactions,
       hideReadReceipts,
-      showDeveloperTools,
       powerLevelTag,
       accessibleTagColors,
       legacyUsernameColor,
@@ -1028,13 +1026,7 @@ export const Message = as<'div', MessageProps>(
                               onClose={closeMenu}
                             />
                           )}
-                          {showDeveloperTools && (
-                            <MessageSourceCodeItem
-                              room={room}
-                              mEvent={mEvent}
-                              onClose={closeMenu}
-                            />
-                          )}
+                          <MessageSourceCodeItem room={room} mEvent={mEvent} onClose={closeMenu} />
                           <MessageCopyLinkItem room={room} mEvent={mEvent} onClose={closeMenu} />
                           {canPinEvent && (
                             <MessagePinItem room={room} mEvent={mEvent} onClose={closeMenu} />
@@ -1109,7 +1101,6 @@ export type EventProps = {
   canDelete?: boolean;
   messageSpacing: MessageSpacing;
   hideReadReceipts?: boolean;
-  showDeveloperTools?: boolean;
 };
 export const Event = as<'div', EventProps>(
   (
@@ -1121,7 +1112,6 @@ export const Event = as<'div', EventProps>(
       canDelete,
       messageSpacing,
       hideReadReceipts,
-      showDeveloperTools,
       children,
       ...props
     },
@@ -1198,13 +1188,7 @@ export const Event = as<'div', EventProps>(
                               onClose={closeMenu}
                             />
                           )}
-                          {showDeveloperTools && (
-                            <MessageSourceCodeItem
-                              room={room}
-                              mEvent={mEvent}
-                              onClose={closeMenu}
-                            />
-                          )}
+                          <MessageSourceCodeItem room={room} mEvent={mEvent} onClose={closeMenu} />
                           <MessageCopyLinkItem room={room} mEvent={mEvent} onClose={closeMenu} />
                         </Box>
                         {((!mEvent.isRedacted() && canDelete && !stateEvent) ||

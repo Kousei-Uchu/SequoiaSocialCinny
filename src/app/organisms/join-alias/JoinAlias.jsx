@@ -75,7 +75,7 @@ function JoinAliasContent({ term, requestClose }) {
 
   return (
     <form className="join-alias" onSubmit={handleSubmit}>
-      <Input label="Address" value={term} name="alias" required autoFocus />
+      <Input label="Address" value={term} name="alias" required />
       {error && (
         <Text className="join-alias__error" variant="b3">
           {error}

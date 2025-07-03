@@ -10,7 +10,7 @@ import {
   deleteAfterLoginRedirectPath,
   getAfterLoginRedirectPath,
 } from '../../afterLoginRedirectPath';
-import { getHomePath } from '../../pathUtils';
+import { getRoomsPath } from '../../pathUtils';
 
 export enum GetBaseUrlError {
   NotAllow = 'NotAllow',
@@ -117,7 +117,7 @@ export const useLoginComplete = (data?: CustomLoginResponse) => {
       updateLocalStore(loginRes.access_token, loginRes.device_id, loginRes.user_id, loginBaseUrl);
       const afterLoginRedirectUrl = getAfterLoginRedirectPath();
       deleteAfterLoginRedirectPath();
-      navigate(afterLoginRedirectUrl ?? getHomePath(), { replace: true });
+      navigate(afterLoginRedirectUrl ?? getRoomsPath(), { replace: true });
     }
   }, [data, navigate]);
 };

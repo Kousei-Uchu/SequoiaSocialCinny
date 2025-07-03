@@ -13,7 +13,6 @@ import { AuthLayout, Login, Register, ResetPassword } from './auth';
 import {
   DIRECT_PATH,
   EXPLORE_PATH,
-  HOME_PATH,
   ROOMS_PATH,
   LOGIN_PATH,
   INBOX_PATH,
@@ -29,25 +28,26 @@ import {
   _ROOM_PATH,
   _SEARCH_PATH,
   _SERVER_PATH,
+  HOME_PATH,
 } from './paths';
 import { isAuthenticated } from '../../client/state/auth';
 import {
   getAppPathFromHref,
   getExploreFeaturedPath,
-  getHomePath,
   getRoomsPath,
   getInboxNotificationsPath,
   getLoginPath,
   getOriginBaseUrl,
   getSpaceLobbyPath,
+  getHomePath,
 } from './pathUtils';
 import { ClientBindAtoms, ClientLayout, ClientRoot } from './client';
-import { Rooms, RoomsRouteRoomProvider, RoomsSearch } from './client/rooms';
-import { Home } from './client/home';
+import { Rooms, RoomRouterRoomProvider, RoomsSearch } from './client/rooms';
 import { Direct, DirectCreate, DirectRouteRoomProvider } from './client/direct';
 import { RouteSpaceProvider, Space, SpaceRouteRoomProvider, SpaceSearch } from './client/space';
 import { Explore, FeaturedRooms, PublicRooms } from './client/explore';
 import { Notifications, Inbox, Invites } from './client/inbox';
+import { Home } from './client/home';
 import { setAfterLoginRedirectPath } from './afterLoginRedirectPath';
 import { Room } from '../features/room';
 import { Lobby } from '../features/lobby';
@@ -154,18 +154,16 @@ export const createRouter = (clientConfig: ClientConfig, screenSize: ScreenSize)
             </PageRoot>
           }
         >
-          {mobile ? null : (
-            <Route index loader={() => redirect(getRoomsPath())} element={<WelcomePage />} />
-          )}
+          {mobile ? null : <Route index element={<WelcomePage />} />}
           <Route path={_CREATE_PATH} element={<p>create</p>} />
           <Route path={_JOIN_PATH} element={<p>join</p>} />
           <Route path={_SEARCH_PATH} element={<RoomsSearch />} />
           <Route
             path={_ROOM_PATH}
             element={
-              <RoomsRouteRoomProvider>
+              <RoomRouterRoomProvider>
                 <Room />
-              </RoomsRouteRoomProvider>
+              </RoomRouterRoomProvider>
             }
           />
         </Route>
@@ -189,10 +187,27 @@ export const createRouter = (clientConfig: ClientConfig, screenSize: ScreenSize)
             path={_ROOM_PATH}
             element={
               <DirectRouteRoomProvider>
-                <Room />
+                <Direct />
               </DirectRouteRoomProvider>
             }
           />
+        </Route>
+        <Route
+          path={HOME_PATH}
+          element={
+            <PageRoot
+              nav={
+                <MobileFriendlyPageNav path={HOME_PATH}>
+                  <Home />
+                </MobileFriendlyPageNav>
+              }
+            >
+              <Outlet />
+            </PageRoot>
+          }
+        >
+          {mobile ? null : <Route index element={<WelcomePage />} />}
+          <Route path={HOME_PATH} element={<Home />} />
         </Route>
         <Route
           path={SPACE_PATH}
@@ -281,24 +296,6 @@ export const createRouter = (clientConfig: ClientConfig, screenSize: ScreenSize)
           )}
           <Route path={_NOTIFICATIONS_PATH} element={<Notifications />} />
           <Route path={_INVITES_PATH} element={<Invites />} />
-        </Route>
-        <Route
-          path={HOME_PATH}
-          element={
-            <PageRoot
-              nav={
-                <MobileFriendlyPageNav path={HOME_PATH}>
-                  <Home />
-                </MobileFriendlyPageNav>
-              }
-            >
-              <Outlet />
-            </PageRoot>
-          }
-        >
-          {mobile ? null : (
-            <Route index loader={() => redirect(getHomePath())} element={<WelcomePage />} />
-          )}
         </Route>
       </Route>
       <Route path="/*" element={<p>Page not found</p>} />

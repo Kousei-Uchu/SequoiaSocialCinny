@@ -43,10 +43,10 @@ export type _RoomSearchParams = {
 export const _ROOM_PATH = ':roomIdOrAlias/:eventId?/';
 
 export const ROOMS_PATH = '/rooms/';
-export const ROOMS_CREATE_PATH = `/rooms/${_CREATE_PATH}`;
-export const ROOMS_JOIN_PATH = `/rooms/${_JOIN_PATH}`;
-export const ROOMS_SEARCH_PATH = `/rooms/${_SEARCH_PATH}`;
-export const ROOMS_ROOM_PATH = `/rooms/${_ROOM_PATH}`;
+export const ROOM_CREATE_PATH = `/rooms/${_CREATE_PATH}`;
+export const ROOM_JOIN_PATH = `/rooms/${_JOIN_PATH}`;
+export const ROOM_SEARCH_PATH = `/rooms/${_SEARCH_PATH}`;
+export const ROOM_ROOM_PATH = `/rooms/${_ROOM_PATH}`;
 
 export const HOME_PATH = '/home/';
 

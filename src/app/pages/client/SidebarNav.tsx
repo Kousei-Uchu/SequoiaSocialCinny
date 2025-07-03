@@ -12,7 +12,6 @@ import {
 } from '../../components/sidebar';
 import {
   DirectTab,
-  HomeTab,
   RoomsTab,
   SpaceTabs,
   InboxTab,
@@ -31,7 +30,6 @@ export function SidebarNav() {
         scrollable={
           <Scroll ref={scrollRef} variant="Background" size="0">
             <SidebarStack>
-              <HomeTab />
               <RoomsTab />
               <DirectTab />
             </SidebarStack>

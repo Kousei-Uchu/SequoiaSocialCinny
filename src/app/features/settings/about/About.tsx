@@ -46,16 +46,16 @@ export function About({ requestClose }: AboutProps) {
                 <Box direction="Column" gap="300">
                   <Box direction="Column" gap="100">
                     <Box gap="100" alignItems="End">
-                      <Text size="H3">Sequoia Social</Text>
+                      <Text size="H3">Cinny</Text>
                       <Text size="T200">v{cons.version}</Text>
                     </Box>
-                    <Text>Spicy Connection. A fork of Cinny.</Text>
+                    <Text>Yet another matrix client.</Text>
                   </Box>
 
                   <Box gap="200" wrap="Wrap">
                     <Button
                       as="a"
-                      href="https://github.com/Kousei-Uchu/SequoiaSocialCinny"
+                      href="https://github.com/cinnyapp/cinny"
                       rel="noreferrer noopener"
                       target="_blank"
                       variant="Secondary"
