@@ -193,11 +193,36 @@ export function ClientRoot({ children }: ClientRootProps) {
                 {startState.status === AsyncStatus.Error && (
                   <Text>{`Failed to start. ${startState.error.message}`}</Text>
                 )}
-                <Button variant="Critical" onClick={mx ? () => startMatrix(mx) : loadMatrix}>
-                  <Text as="span" size="B400">
-                    Retry
-                  </Text>
-                </Button>
+
+                {/* Fixed conditional logic */}
+                {(loadState.status === AsyncStatus.Error &&
+                  loadState.error.message.includes('store')) ||
+                (startState.status === AsyncStatus.Error &&
+                  startState.error.message.includes('store')) ? (
+                  <Button
+                    variant="Critical"
+                    onClick={async () => {
+                      const dbs = await indexedDB.databases();
+                      await Promise.all(
+                        dbs.map(({ name }) =>
+                          name ? indexedDB.deleteDatabase(name) : Promise.resolve()
+                        )
+                      );
+                      localStorage.clear();
+                      window.location.href = '/';
+                    }}
+                  >
+                    <Text as="span" size="B400">
+                      Clear Session & Reload
+                    </Text>
+                  </Button>
+                ) : (
+                  <Button variant="Critical" onClick={mx ? () => startMatrix(mx) : loadMatrix}>
+                    <Text as="span" size="B400">
+                      Retry
+                    </Text>
+                  </Button>
+                )}
               </Box>
             </Dialog>
           </Box>
