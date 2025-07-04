@@ -16,6 +16,18 @@ export type Theme = {
   classNames: string[];
 };
 
+export const SequoiaLightTheme: Theme = {
+  id: 'sequoia-light-theme',
+  kind: ThemeKind.Light,
+  classNames: ['sequoia-light-theme', silverTheme, onLightFontWeight, 'prism-light'],
+};
+
+export const SequoiaDarkTheme: Theme = {
+  id: 'sequoia-dark-theme',
+  kind: ThemeKind.Light,
+  classNames: ['sequoia-dark-theme', silverTheme, onLightFontWeight, 'prism-light'],
+};
+
 export const LightTheme: Theme = {
   id: 'light-theme',
   kind: ThemeKind.Light,
