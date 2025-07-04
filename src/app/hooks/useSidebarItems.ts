@@ -14,7 +14,7 @@ export type ISidebarFolder = {
 export type TSidebarItem = string | ISidebarFolder;
 export type SidebarItems = Array<TSidebarItem>;
 
-export type InCinnySpacesContent = {
+export type InSequoiaSocialSpacesContent = {
   shortcut?: string[];
   sidebar?: SidebarItems;
 };
@@ -22,7 +22,7 @@ export type InCinnySpacesContent = {
 export const parseSidebar = (
   mx: MatrixClient,
   orphanSpaces: string[],
-  content?: InCinnySpacesContent
+  content?: InSequoiaSocialSpacesContent
 ) => {
   const sidebar = content?.sidebar ?? content?.shortcut ?? [];
   const orphans = new Set(orphanSpaces);
@@ -69,27 +69,27 @@ export const useSidebarItems = (
   const mx = useMatrixClient();
 
   const [sidebarItems, setSidebarItems] = useState(() => {
-    const inCinnySpacesContent = getAccountData(
+    const inSequoiaSocialSpacesContent = getAccountData(
       mx,
-      AccountDataEvent.CinnySpaces
-    )?.getContent<InCinnySpacesContent>();
-    return parseSidebar(mx, orphanSpaces, inCinnySpacesContent);
+      AccountDataEvent.SequoiaSocialSpaces
+    )?.getContent<InSequoiaSocialSpacesContent>();
+    return parseSidebar(mx, orphanSpaces, inSequoiaSocialSpacesContent);
   });
 
   useEffect(() => {
-    const inCinnySpacesContent = getAccountData(
+    const inSequoiaSocialSpacesContent = getAccountData(
       mx,
-      AccountDataEvent.CinnySpaces
-    )?.getContent<InCinnySpacesContent>();
-    setSidebarItems(parseSidebar(mx, orphanSpaces, inCinnySpacesContent));
+      AccountDataEvent.SequoiaSocialSpaces
+    )?.getContent<InSequoiaSocialSpacesContent>();
+    setSidebarItems(parseSidebar(mx, orphanSpaces, inSequoiaSocialSpacesContent));
   }, [mx, orphanSpaces]);
 
   useAccountDataCallback(
     mx,
     useCallback(
       (mEvent) => {
-        if (mEvent.getType() === AccountDataEvent.CinnySpaces) {
-          const newContent = mEvent.getContent<InCinnySpacesContent>();
+        if (mEvent.getType() === AccountDataEvent.SequoiaSocialSpaces) {
+          const newContent = mEvent.getContent<InSequoiaSocialSpacesContent>();
           setSidebarItems(parseSidebar(mx, orphanSpaces, newContent));
         }
       },
@@ -122,14 +122,17 @@ export const sidebarItemWithout = (items: SidebarItems, roomId: string) => {
   return newItems;
 };
 
-export const makeCinnySpacesContent = (
+export const makeSequoiaSocialSpacesContent = (
   mx: MatrixClient,
   items: SidebarItems
-): InCinnySpacesContent => {
+): InSequoiaSocialSpacesContent => {
   const currentInSpaces =
-    getAccountData(mx, AccountDataEvent.CinnySpaces)?.getContent<InCinnySpacesContent>() ?? {};
+    getAccountData(
+      mx,
+      AccountDataEvent.SequoiaSocialSpaces
+    )?.getContent<InSequoiaSocialSpacesContent>() ?? {};
 
-  const newSpacesContent: InCinnySpacesContent = {
+  const newSpacesContent: InSequoiaSocialSpacesContent = {
     ...currentInSpaces,
     sidebar: items,
   };

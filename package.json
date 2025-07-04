@@ -1,7 +1,7 @@
 {
-  "name": "cinny",
-  "version": "4.8.1",
-  "description": "Yet another matrix client",
+  "name": "sequoiasocial",
+  "version": "1.0.0",
+  "description": "Spicy Connections",
   "main": "index.js",
   "type": "module",
   "engines": {
@@ -17,7 +17,7 @@
     "typecheck": "tsc --noEmit"
   },
   "keywords": [],
-  "author": "Ajay Bura",
+  "author": "Kousei Uchu",
   "license": "AGPL-3.0-only",
   "dependencies": {
     "@atlaskit/pragmatic-drag-and-drop": "1.1.6",

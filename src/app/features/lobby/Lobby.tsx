@@ -44,7 +44,7 @@ import { ASCIILexicalTable, orderKeys } from '../../utils/ASCIILexicalTable';
 import { getStateEvent } from '../../utils/room';
 import { useClosedLobbyCategoriesAtom } from '../../state/hooks/closedLobbyCategories';
 import {
-  makeCinnySpacesContent,
+  makeSequoiaSocialSpacesContent,
   sidebarItemWithout,
   useSidebarItems,
 } from '../../hooks/useSidebarItems';
@@ -429,8 +429,8 @@ export function Lobby() {
       if (!sidebarSpaces.has(rId)) {
         newItems.push(rId);
       }
-      const newSpacesContent = makeCinnySpacesContent(mx, newItems);
-      mx.setAccountData(AccountDataEvent.CinnySpaces, newSpacesContent);
+      const newSpacesContent = makeSequoiaSocialSpacesContent(mx, newItems);
+      mx.setAccountData(AccountDataEvent.SequoiaSocialSpaces, newSpacesContent);
     },
     [mx, sidebarItems, sidebarSpaces]
   );

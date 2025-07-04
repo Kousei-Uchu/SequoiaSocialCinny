@@ -40,22 +40,22 @@ export function About({ requestClose }: AboutProps) {
                   <img
                     style={{ width: toRem(60), height: toRem(60) }}
                     src={CinnySVG}
-                    alt="Cinny logo"
+                    alt="Sequoia Social logo"
                   />
                 </Box>
                 <Box direction="Column" gap="300">
                   <Box direction="Column" gap="100">
                     <Box gap="100" alignItems="End">
-                      <Text size="H3">Cinny</Text>
+                      <Text size="H3">Sequoia Social</Text>
                       <Text size="T200">v{cons.version}</Text>
                     </Box>
-                    <Text>Yet another matrix client.</Text>
+                    <Text>Spicy Connection.</Text>
                   </Box>
 
                   <Box gap="200" wrap="Wrap">
                     <Button
                       as="a"
-                      href="https://github.com/cinnyapp/cinny"
+                      href="https://github.com/Kousei-Uchu/SequoiaSocialCinny"
                       rel="noreferrer noopener"
                       target="_blank"
                       variant="Secondary"
@@ -68,7 +68,7 @@ export function About({ requestClose }: AboutProps) {
                     </Button>
                     <Button
                       as="a"
-                      href="https://cinny.in/#sponsor"
+                      href="https://throne.com/kouseiuchu"
                       rel="noreferrer noopener"
                       target="_blank"
                       variant="Critical"
@@ -125,6 +125,35 @@ export function About({ requestClose }: AboutProps) {
                       paddingLeft: config.space.S400,
                     }}
                   >
+                    <li>
+                      <Text size="T300">
+                        {' '}
+                        <a
+                          href="https://github.com/cinnyapp/cinny"
+                          rel="noreferrer noopener"
+                          target="_blank"
+                        >
+                          Cinny
+                        </a>{' '}
+                        is ©{' '}
+                        <a
+                          href="https://ajbura.github.io/"
+                          rel="noreferrer noopener"
+                          target="_blank"
+                        >
+                          Ajay Bura
+                        </a>{' '}
+                        used under the terms of{' '}
+                        <a
+                          href="https://www.gnu.org/licenses/agpl-3.0.en.html"
+                          rel="noreferrer noopener"
+                          target="_blank"
+                        >
+                          Affero General Public License 3.0
+                        </a>
+                        .
+                      </Text>
+                    </li>
                     <li>
                       <Text size="T300">
                         The{' '}

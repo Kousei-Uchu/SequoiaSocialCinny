@@ -11,6 +11,7 @@ import {
   SidebarItem,
 } from '../../components/sidebar';
 import {
+  HomeTab,
   DirectTab,
   RoomsTab,
   SpaceTabs,
@@ -30,6 +31,7 @@ export function SidebarNav() {
         scrollable={
           <Scroll ref={scrollRef} variant="Background" size="0">
             <SidebarStack>
+              <HomeTab />
               <RoomsTab />
               <DirectTab />
             </SidebarStack>

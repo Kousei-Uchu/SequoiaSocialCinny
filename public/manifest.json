@@ -1,9 +1,9 @@
 {
-  "name": "Cinny",
-  "short_name": "Cinny",
-  "description": "Yet another matrix client",
+  "name": "Sequoia Social",
+  "short_name": "SequoiaSocial",
+  "description": "Spicy Connection",
   "dir": "auto",
-  "lang": "en-US",
+  "lang": "en-AU",
   "display": "standalone",
   "orientation": "portrait",
   "start_url": "./",

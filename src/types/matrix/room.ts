@@ -35,7 +35,7 @@ export enum StateEvent {
   SpaceParent = 'm.space.parent',
 
   PoniesRoomEmotes = 'im.ponies.room_emotes',
-  PowerLevelTags = 'in.cinny.room.power_level_tags',
+  PowerLevelTags = 'in.sequoiasocial.room.power_level_tags',
 }
 
 export enum MessageEvent {

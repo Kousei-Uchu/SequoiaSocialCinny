@@ -15,7 +15,7 @@ export function WelcomePage() {
       >
         <PageHeroSection>
           <PageHero
-            icon={<img width="70" height="70" src={CinnySVG} alt="Cinny Logo" />}
+            icon={<img width="70" height="70" src={CinnySVG} alt="Sequoia Social Logo" />}
             title="Welcome to Sequoia Social!"
             subTitle={
               <>
@@ -39,7 +39,7 @@ export function WelcomePage() {
                 </Button>
                 <Button
                   as="a"
-                  href="https://cinny.in/#sponsor"
+                  href="https://throne.com/kouseiuchu"
                   target="_blank"
                   rel="noreferrer noopener"
                   fill="Soft"
