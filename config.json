@@ -3,7 +3,7 @@
   "homeserverList": [
     "converser.eu",
     "envs.net",
-    "social.sequoiasupport.com",
+    "socialserver.sequoiasupport.com",
     "matrix.org",
     "monero.social",
     "mozilla.org",
@@ -33,7 +33,7 @@
     ],
     "servers": [
       "envs.net",
-      "social.sequoiasupport.com",
+      "socialserver.sequoiasupport.com",
       "matrix.org",
       "monero.social",
       "mozilla.org"
