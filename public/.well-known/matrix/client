@@ -1,7 +1,5 @@
 {
-  "m": {
-    "homeserver": {
-      "base_url": "https://socialserver.sequoiasupport.com"
-    }
+  "m.homeserver": {
+    "base_url": "https://socialserver.sequoiasupport.com"
   }
 }
