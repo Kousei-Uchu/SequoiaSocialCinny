@@ -3,5 +3,16 @@
     { "source": "/(.*)", "destination": "/" },
     { "source": "/.well-known/matrix/server", "destination": "/api/.well-known/matrix/server" },
     { "source": "/.well-known/matrix/client", "destination": "/api/.well-known/matrix/client" }
+  ],
+  "headers": [
+    {
+      "source": "/.well-known/matrix/(client|server)",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ]
+    }
   ]
 }
