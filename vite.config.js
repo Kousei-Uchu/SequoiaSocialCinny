@@ -38,6 +38,11 @@ const copyFiles = {
       src: 'public/locales',
       dest: 'public/',
     },
+    {
+      // ✅ Ensure .well-known is copied to output
+      src: 'public/.well-known',
+      dest: '.well-known',
+    },
   ],
 };
 
@@ -47,7 +52,10 @@ function serverMatrixSdkCryptoWasm(wasmFilePath) {
     configureServer(server) {
       server.middlewares.use((req, res, next) => {
         if (req.url === wasmFilePath) {
-          const resolvedPath = path.join(path.resolve(), "/node_modules/@matrix-org/matrix-sdk-crypto-wasm/pkg/matrix_sdk_crypto_wasm_bg.wasm");
+          const resolvedPath = path.join(
+            path.resolve(),
+            '/node_modules/@matrix-org/matrix-sdk-crypto-wasm/pkg/matrix_sdk_crypto_wasm_bg.wasm'
+          );
 
           if (fs.existsSync(resolvedPath)) {
             res.setHeader('Content-Type', 'application/wasm');
@@ -69,22 +77,19 @@ function serverMatrixSdkCryptoWasm(wasmFilePath) {
 
 export default defineConfig({
   appType: 'spa',
-  publicDir: false,
+  publicDir: 'public', // ✅ ENABLE public folder
   base: buildConfig.base,
   server: {
     port: 8080,
     host: true,
     fs: {
-      // Allow serving files from one level up to the project root
       allow: ['..'],
     },
   },
   plugins: [
     serverMatrixSdkCryptoWasm('/node_modules/.vite/deps/pkg/matrix_sdk_crypto_wasm_bg.wasm'),
     topLevelAwait({
-      // The export name of top-level await promise for each chunk module
       promiseExportName: '__tla',
-      // The function to generate import names of top-level await promise in each chunk module
       promiseImportName: (i) => `__tla_${i}`,
     }),
     viteStaticCopy(copyFiles),
@@ -102,8 +107,8 @@ export default defineConfig({
       },
       devOptions: {
         enabled: true,
-        type: 'module'
-      }
+        type: 'module',
+      },
     }),
   ],
   optimizeDeps: {
@@ -112,7 +117,6 @@ export default defineConfig({
         global: 'globalThis',
       },
       plugins: [
-        // Enable esbuild polyfill plugins
         NodeGlobalsPolyfillPlugin({
           process: false,
           buffer: true,
@@ -123,7 +127,7 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: true,
-    copyPublicDir: false,
+    copyPublicDir: true, // ✅ copy public folder contents
     rollupOptions: {
       plugins: [inject({ Buffer: ['buffer', 'Buffer'] })],
     },
