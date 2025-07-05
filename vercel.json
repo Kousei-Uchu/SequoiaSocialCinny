@@ -9,15 +9,8 @@
       "destination": "/api/.well-known/matrix/client"
     },
     {
-      "source": "/(.*)",
-      "destination": "/",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-matrix-wants-spa",
-          "value": "true"
-        }
-      ]
+      "source": "/((?!api|\\.well-known).*)",
+      "destination": "/"
     }
   ],
   "headers": [
