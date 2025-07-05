@@ -1,5 +1,11 @@
-import { NextApiRequest, NextApiResponse } from 'next';
+import { NextResponse } from 'next/server';
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  res.status(200).json({ 'm.homeserver': { base_url: 'https://socialserver.sequoiasupport.com' } });
+export async function GET() {
+  return NextResponse.json({
+    m: {
+      homeserver: {
+        base_url: 'https://matrix-backend.yourdomain.com',
+      },
+    },
+  });
 }
