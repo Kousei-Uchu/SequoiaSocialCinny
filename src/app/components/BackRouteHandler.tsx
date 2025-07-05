@@ -48,7 +48,7 @@ export function BackRouteHandler({ children }: BackRouteHandlerProps) {
         location.pathname
       )
     ) {
-      navigate(getHomePath());
+      navigate(getDirectPath());
       return;
     }
     if (
@@ -61,7 +61,7 @@ export function BackRouteHandler({ children }: BackRouteHandlerProps) {
         location.pathname
       )
     ) {
-      navigate(getDirectPath());
+      navigate(getHomePath());
       return;
     }
     const spaceMatch = matchPath(

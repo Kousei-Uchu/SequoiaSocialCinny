@@ -22,6 +22,7 @@ export const RESET_PASSWORD_PATH = '/reset-password/:server?/';
 export const _CREATE_PATH = 'create/';
 export const _JOIN_PATH = 'join/';
 export const _LOBBY_PATH = 'lobby/';
+
 /**
  * array of rooms and senders mxId assigned
  * to search param as string should be "," separated

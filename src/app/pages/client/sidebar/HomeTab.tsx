@@ -15,7 +15,7 @@ export function HomeTab() {
   const homeSelected = useHomeSelected();
 
   const handleHomeClick = () => {
-    const activePath = navToActivePath.get('rooms');
+    const activePath = navToActivePath.get('home');
     if (activePath && screenSize !== ScreenSize.Mobile) {
       navigate(joinPathComponent(activePath));
       return;
