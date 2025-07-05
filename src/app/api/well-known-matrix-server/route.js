@@ -1,9 +1,15 @@
-import { NextResponse } from 'next/server';
-
 export async function GET() {
-  return NextResponse.json({
-    m: {
-      server: 'socialserver.sequoiasupport.com:443',
-    },
-  });
+  return new Response(
+    JSON.stringify({
+      m: {
+        homeserver: 'socialserver.sequoiasupport.com:443',
+      },
+    }),
+    {
+      status: 200,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+  );
 }

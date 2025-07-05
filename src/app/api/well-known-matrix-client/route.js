@@ -1,11 +1,17 @@
-import { NextResponse } from 'next/server';
-
 export async function GET() {
-  return NextResponse.json({
-    m: {
-      homeserver: {
-        base_url: 'https://socialserver.sequoiasupport.com',
+  return new Response(
+    JSON.stringify({
+      m: {
+        homeserver: {
+          base_url: 'https://socialserver.sequoiasupport.com',
+        },
       },
-    },
-  });
+    }),
+    {
+      status: 200,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+  );
 }
