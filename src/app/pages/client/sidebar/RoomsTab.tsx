@@ -104,7 +104,7 @@ export function RoomsTab() {
             onClick={handleRoomsClick}
             onContextMenu={handleContextMenu}
           >
-            <Icon src={Icons.Home} filled={roomsSelected} />
+            <Icon src={Icons.Category} filled={roomsSelected} />
           </SidebarAvatar>
         )}
       </SidebarItemTooltip>

@@ -19,7 +19,10 @@ export function UserAvatar({ userId, src, alt, renderFallback }: UserAvatarProps
   if (!src || error) {
     return (
       <AvatarFallback
-        style={{ backgroundColor: colorMXID(userId), color: color.Surface.Container }}
+        style={{
+          backgroundColor: colorMXID(userId),
+          color: color.Surface.Container,
+        }}
         className={css.UserAvatar}
       >
         {renderFallback()}

@@ -30,6 +30,7 @@ import { Devices } from './devices';
 import { EmojisStickers } from './emojis-stickers';
 import { DeveloperTools } from './developer-tools';
 import { About } from './about';
+import { SpicySettings } from './spicy-settings';
 import { UseStateProvider } from '../../components/UseStateProvider';
 import { stopPropagation } from '../../utils/keyboard';
 import { LogoutDialog } from '../../components/LogoutDialog';
@@ -42,6 +43,7 @@ export enum SettingsPages {
   EmojisStickersPage,
   DeveloperToolsPage,
   AboutPage,
+  SpicySettingsPage,
 }
 
 type SettingsMenuItem = {
@@ -77,6 +79,11 @@ const useSettingsMenuItems = (): SettingsMenuItem[] =>
         page: SettingsPages.EmojisStickersPage,
         name: 'Emojis & Stickers',
         icon: Icons.Smile,
+      },
+      {
+        page: SettingsPages.SpicySettingsPage,
+        name: 'Spicy Settings',
+        icon: Icons.Star,
       },
       {
         page: SettingsPages.DeveloperToolsPage,
@@ -221,6 +228,9 @@ export function Settings({ initialPage, requestClose }: SettingsProps) {
       )}
       {activePage === SettingsPages.DevicesPage && (
         <Devices requestClose={handlePageRequestClose} />
+      )}
+      {activePage === SettingsPages.SpicySettingsPage && (
+        <SpicySettings requestClose={handlePageRequestClose} />
       )}
       {activePage === SettingsPages.EmojisStickersPage && (
         <EmojisStickers requestClose={handlePageRequestClose} />

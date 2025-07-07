@@ -15,7 +15,7 @@ const Avatar = React.forwardRef(({ text, bgColor, iconSrc, iconColor, imageSrc, 
   if (size === 'extra-small') textSize = 'b3';
 
   return (
-    <div ref={ref} className={`avatar-container avatar-container__${size} noselect`}>
+    <div ref={ref} className={`avatar avatar-container avatar-container__${size} noselect`}>
       {imageSrc !== null ? (
         <img
           draggable="false"

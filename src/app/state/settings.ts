@@ -36,6 +36,8 @@ export interface Settings {
   isNotificationSounds: boolean;
 
   developerTools: boolean;
+
+  useOpenDyslexic?: boolean;
 }
 
 const defaultSettings: Settings = {
@@ -66,6 +68,7 @@ const defaultSettings: Settings = {
   isNotificationSounds: true,
 
   developerTools: false,
+  useOpenDyslexic: false,
 };
 
 export const getSettings = () => {

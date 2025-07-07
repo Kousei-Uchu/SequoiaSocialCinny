@@ -51,6 +51,15 @@ function PageZoomFeature() {
   return null;
 }
 
+function UseOpenDyslexic() {
+  const [useDyslexic] = useSetting(settingsAtom, 'useOpenDyslexic');
+
+  const className = 'opendyslexic';
+  document.body.classList.toggle(className, useDyslexic);
+
+  return null; // this component only applies the effect
+}
+
 function FaviconUpdater() {
   const roomToUnread = useAtomValue(roomToUnreadAtom);
 
@@ -265,6 +274,7 @@ export function ClientNonUIFeatures({ children }: ClientNonUIFeaturesProps) {
       <FaviconUpdater />
       <InviteNotifications />
       <MessageNotifications />
+      <UseOpenDyslexic />
       {children}
     </>
   );
